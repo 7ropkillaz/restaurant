@@ -4,6 +4,7 @@ public class Restaurant {
     private String address;
     private String name;
     private int tables;
+    private String id;
 
 
     public String getAddress() {
