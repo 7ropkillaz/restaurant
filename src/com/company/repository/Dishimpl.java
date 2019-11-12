@@ -1,8 +1,6 @@
 package com.company.repository;
 
 import com.company.model.Dish;
-import model.Dish;
-import repository.DishRepository;
 
 import java.util.ArrayList;
 
