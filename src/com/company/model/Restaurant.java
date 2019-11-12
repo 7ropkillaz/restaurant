@@ -7,6 +7,13 @@ public class Restaurant {
     private String id;
 
 
+    public Restaurant(String address, String name, int tables, String id) {
+        this.address = address;
+        this.name = name;
+        this.tables = tables;
+        this.id = id;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -30,4 +37,12 @@ public class Restaurant {
     public void setTables(int tables) {
         this.tables = tables;
     }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 }
