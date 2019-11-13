@@ -6,50 +6,40 @@ import java.util.ArrayList;
 
 public class Dishimpl implements DishRepository {
     private ArrayList<Dish> _arr;
-    public Dishimpl()
-    {
+
+    public Dishimpl() {
         _arr = new ArrayList<Dish>();
     }
-    public Dishimpl(int cnt)
-    {
+
+    public Dishimpl(int cnt) {
         _arr = new ArrayList<Dish>(cnt);
     }
-    @Override
-    public void add(int index, Object dish)
-    {
-        if(index<0||index>_arr.size()-1)
-            throw new IndexOutOfBoundsException();
-        _arr.add(index,(Dish)dish);
-    }
-    @Override
-    public void add(Object dish)
-    {
-        _arr.add((Dish)dish);
-    }
-    @Override
-    public void edit(int index, Object dish)
-    {
-        if(index<0||index>_arr.size()-1)
-            throw new IndexOutOfBoundsException();
-        _arr.remove(index);
-        _arr.add(index,(Dish)dish);
 
-    }
     @Override
-    public void remove(int index)
-    {
-        if(index<0||index>_arr.size()-1)
-            throw new IndexOutOfBoundsException();
+    public void add(Dish dish) {
+        _arr.add((Dish) dish);
+    }
+
+    @Override
+    public void edit(int index, Dish newDish) {
+       Dish dish1 = _arr.get(index);
+       dish1.setCategory(newDish.getCategory());
+       dish1.setName(newDish.getName());
+       dish1.setPrice(newDish.getPrice());
+    }
+
+    @Override
+    public void remove(int index) {
         _arr.remove(index);
     }
+
     @Override
-    public void remove(Object dish)
-    {
+    public void remove(Dish dish) {
         _arr.remove(dish);
     }
+
     @Override
-    public Object getAll()
-    {
+    public Object getAll() {
         return _arr;
     }
 }

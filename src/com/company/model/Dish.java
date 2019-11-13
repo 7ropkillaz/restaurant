@@ -12,12 +12,6 @@ public class Dish {
         _category=category;
     }
 
-    public Dish(Dish dish)
-    {
-        _name = new String(dish._name);
-        _category = new Category(dish._category);
-        _price = dish._price;
-    }
 
     public Category getCategory() {
         return _category;
@@ -41,12 +35,6 @@ public class Dish {
 
     public void setPrice(int _price) {
         this._price = _price;
-    }
-
-    public Object clone()throws CloneNotSupportedException
-    {
-        Object res = super.clone();
-        return res;
     }
 
     public String toString()

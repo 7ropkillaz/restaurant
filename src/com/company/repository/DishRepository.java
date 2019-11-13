@@ -1,10 +1,11 @@
 package com.company.repository;
 
+import com.company.model.Dish;
+
 public interface DishRepository {
-    public void add(int index, Object object);
-    public void add(Object object);
-    public void edit(int index, Object object);
+    public void add(Dish object);
+    public void edit(int id, Dish object);
     public void remove(int index);
-    public void remove(Object object);
+    public void remove(Dish object);
     public Object getAll();
 }

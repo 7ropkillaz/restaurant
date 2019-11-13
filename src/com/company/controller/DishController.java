@@ -1,36 +1,33 @@
 package com.company.controller;
 
+import com.company.model.Dish;
+import com.company.repository.DishRepository;
 import com.company.repository.Dishimpl;
-import repository.Dishimpl;
 
 public class DishController {
-    Dishimpl _impl;
+    private DishRepository _rep;
     DishController(Dishimpl impl)
     {
-        _impl=impl;
+        _rep =impl;
     }
-    public void add(int index, Object dish)
+    public void add(Dish dish)
     {
-       _impl.add(index,dish);
+        _rep.add(dish);
     }
-    public void add(Object dish)
-    {
-        _impl.add(dish);
-    }
-    public void edit(int index, Object dish)
+    public void edit(int index, Dish dish)
 {
-    _impl.edit(index,dish);
+    _rep.edit(index,dish);
 }
     public void remove(int index)
     {
-        _impl.remove(index);
+        _rep.remove(index);
     }
-    public void remove(Object dish)
+    public void remove(Dish dish)
     {
-        _impl.remove(dish);
+        _rep.remove(dish);
     }
     public Object getAll()
     {
-        return _impl.getAll();
+        return _rep.getAll();
     }
 }
