@@ -3,6 +3,7 @@ package com.company.repository;
 import com.company.model.Dish;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dishimpl implements DishRepository {
     private ArrayList<Dish> _arr;
@@ -39,7 +40,7 @@ public class Dishimpl implements DishRepository {
     }
 
     @Override
-    public Object getAll() {
+    public List<Dish> getAll() {
         return _arr;
     }
 }

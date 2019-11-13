@@ -4,6 +4,8 @@ import com.company.model.Dish;
 import com.company.repository.DishRepository;
 import com.company.repository.Dishimpl;
 
+import java.util.List;
+
 public class DishController {
     private DishRepository _rep;
     DishController(Dishimpl impl)
@@ -26,7 +28,7 @@ public class DishController {
     {
         _rep.remove(dish);
     }
-    public Object getAll()
+    public List<Dish> getAll()
     {
         return _rep.getAll();
     }
