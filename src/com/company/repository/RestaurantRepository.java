@@ -1,4 +1,6 @@
-package com.company.model;
+package com.company.repository;
+
+import com.company.model.Restaurant;
 
 public interface RestaurantRepository {
     void edit(String address, String name, int tables, String id);

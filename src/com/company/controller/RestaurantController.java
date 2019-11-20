@@ -1,16 +1,14 @@
 package com.company.controller;
 
 import com.company.model.Restaurant;
-import com.company.model.RestaurantRepository;
-import com.company.model.RestaurantRepositoryImpl;
+import com.company.repository.RestaurantRepository;
 
 public class RestaurantController {
 
     private RestaurantRepository rest;
 
-    public RestaurantController() {
-        this.rest = new RestaurantRepositoryImpl() {
-        };
+    public RestaurantController(RestaurantRepository restaurantRepository) {
+        this.rest = restaurantRepository;
 
     }
 
