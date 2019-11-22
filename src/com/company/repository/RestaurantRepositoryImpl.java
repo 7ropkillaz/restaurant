@@ -1,4 +1,6 @@
-package com.company.model;
+package com.company.repository;
+
+import com.company.model.Restaurant;
 
 import java.util.ArrayList;
 
