@@ -63,15 +63,20 @@ public class DishFileImpl implements DishRepository {
 
     @Override
     public void remove(Dish object) throws IOException {
-        ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
-        file = new File(filename);
-        fileWriter = new FileWriter(file);
-        for (int i = 0; i < arr.size(); i++) {
-            if ((object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
-                continue;
-            } else {
-                add(arr.get(i));
+        try {
+            ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
+            file = new File(filename);
+            fileWriter = new FileWriter(file);
+            for (int i = 0; i < arr.size(); i++) {
+                if ((object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
+                    continue;
+                } else {
+                    add(arr.get(i));
+                }
             }
+        }
+        catch (IOException ex){
+
         }
     }
 
