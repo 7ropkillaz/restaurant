@@ -52,30 +52,24 @@ public class Main {
         controller.remove(0);
         System.out.println(controller.getAll());
          */
-        try {
-
-
-            DishFileImpl fileimpl = new DishFileImpl("file.txt");
-            DishImpl dishimpl = new DishImpl();
-            DishController controller = new DishController(dishimpl);
-            controller.add(dish1);
-            controller.add(dish2);
-            System.out.println(controller.getAll());
-            Dish dish3 = new Dish("Pizza", 100, "Italian");
-            controller.edit(0, dish3);
-            System.out.println(controller.getAll());
-            Dish dish4 = new Dish("Borsch", 70, "Russian");
-            controller.add(dish4);
-            System.out.println(controller.getAll());
-            controller.remove(dish3);
-            System.out.println(controller.getAll());
-            Dish dish5 = new Dish("Pelmeni", 90, "Russian");
-            controller.add(dish5);
-            System.out.println(controller.getAll());
-            controller.remove(1);
-            System.out.println(controller.getAll());
-        } catch (Exception e){
-
-        }
+        DishFileImpl fileimpl = new DishFileImpl("file.txt");
+        DishImpl dishimpl = new DishImpl();
+        DishController controller = new DishController(dishimpl);
+        controller.add(dish1);
+        controller.add(dish2);
+        System.out.println(controller.getAll());
+        Dish dish3 = new Dish("Pizza", 100, "Italian");
+        controller.edit(0, dish3);
+        System.out.println(controller.getAll());
+        Dish dish4 = new Dish("Borsch", 70, "Russian");
+        controller.add(dish4);
+        System.out.println(controller.getAll());
+        controller.remove(dish3);
+        System.out.println(controller.getAll());
+        Dish dish5 = new Dish("Pelmeni", 90, "Russian");
+        controller.add(dish5);
+        System.out.println(controller.getAll());
+        controller.remove(1);
+        System.out.println(controller.getAll());
     }
 }

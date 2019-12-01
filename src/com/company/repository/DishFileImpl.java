@@ -14,9 +14,14 @@ public class DishFileImpl implements DishRepository {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
 
-    public DishFileImpl(String filename) throws IOException {
-        this.filename = filename;
-        file = new File(filename);
+    public DishFileImpl(String filename) {
+        try {
+            this.filename = filename;
+            file = new File(filename);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void add(Dish object) {
@@ -34,44 +39,59 @@ public class DishFileImpl implements DishRepository {
     }
 
     @Override
-    public void edit(int id, Dish object) throws IOException {
-        ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
-        file = new File(filename);
-        fileWriter = new FileWriter(file);
-        for (int i = 0; i < arr.size(); i++) {
-            if (id == i) {
-                add(object);
-            } else {
-                add(arr.get(i));
+    public void edit(int id, Dish object){
+        try {
+            ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
+            file = new File(filename);
+            fileWriter = new FileWriter(file);
+            for (int i = 0; i < arr.size(); i++) {
+                if (id == i) {
+                    add(object);
+                } else {
+                    add(arr.get(i));
+                }
             }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void remove(int index) throws IOException {
-        ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
-        file = new File(filename);
-        fileWriter = new FileWriter(file);
-        for (int i = 0; i < arr.size(); i++) {
-            if (index == i) {
-                continue;
-            } else {
-                add(arr.get(i));
+    public void remove(int index) {
+        try {
+            ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
+            file = new File(filename);
+            fileWriter = new FileWriter(file);
+            for (int i = 0; i < arr.size(); i++) {
+                if (index == i) {
+                    continue;
+                } else {
+                    add(arr.get(i));
+                }
             }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void remove(Dish object) throws IOException {
-        ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
-        file = new File(filename);
-        fileWriter = new FileWriter(file);
-        for (int i = 0; i < arr.size(); i++) {
-            if ((object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
-                continue;
-            } else {
-                add(arr.get(i));
+    public void remove(Dish object) {
+        try {
+            ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
+            file = new File(filename);
+            fileWriter = new FileWriter(file);
+            for (int i = 0; i < arr.size(); i++) {
+                if ((object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
+                    continue;
+                } else {
+                    add(arr.get(i));
+                }
             }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
 

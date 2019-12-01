@@ -19,14 +19,29 @@ public class DishController {
     {
         rep.add(dish);
     }
-    public void edit(int index, Dish dish) throws IOException {
-        rep.edit(index,dish);
+    public void edit(int index, Dish dish) {
+        try {
+            rep.edit(index, dish);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
-    public void remove(int index) throws IOException {
-        rep.remove(index);
+    public void remove(int index) {
+        try {
+            rep.remove(index);
+        }
+       catch (Exception e){
+            e.printStackTrace();
+       }
     }
-    public void remove(Dish dish) throws IOException {
-        rep.remove(dish);
+    public void remove(Dish dish) {
+        try {
+            rep.remove(dish);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public List<Dish> getAll()
     {
