@@ -33,7 +33,7 @@ public class DishImpl implements DishRepository {
     @Override
     public void remove(int index) {
         arr.remove(index);
-    }
+    }//удаление по индексу
 
     @Override
     public void remove(Dish dish) {

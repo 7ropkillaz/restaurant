@@ -3,9 +3,12 @@ package com.company;
 import com.company.controller.DishController;
 import com.company.model.Dish;
 import com.company.model.Restaurant;
+import com.company.repository.DishDataBaseImpl;
 import com.company.repository.DishFileImpl;
 import com.company.repository.DishImpl;
 import com.company.repository.FileRepos;
+
+import java.sql.*;
 
 public class Main {
 
@@ -40,8 +43,8 @@ public class Main {
         fileRepos.remove("1333");
         fileRepos.edit("WQeqwe", "Perchini", 4, "13334");
 
-        Dish dish1 = new Dish("Pasta", 30, "Italian");
-        Dish dish2 = new Dish("Ramen", 50, "Japanese");
+        Dish dish1 = new Dish(1,"Pasta", 30, "Italian");
+        Dish dish2 = new Dish(2,"Ramen", 50, "Japanese");
         /*
         DishImpl impl = new DishImpl();
         DishController controller = new DishController(impl);
@@ -58,18 +61,26 @@ public class Main {
         controller.add(dish1);
         controller.add(dish2);
         System.out.println(controller.getAll());
-        Dish dish3 = new Dish("Pizza", 100, "Italian");
+        Dish dish3 = new Dish(3,"Pizza", 100, "Italian");
         controller.edit(0, dish3);
         System.out.println(controller.getAll());
-        Dish dish4 = new Dish("Borsch", 70, "Russian");
+        Dish dish4 = new Dish(4,"Borsch", 70, "Russian");
         controller.add(dish4);
         System.out.println(controller.getAll());
         controller.remove(dish3);
         System.out.println(controller.getAll());
-        Dish dish5 = new Dish("Pelmeni", 90, "Russian");
+        Dish dish5 = new Dish(5,"Pelmeni", 90, "Russian");
         controller.add(dish5);
         System.out.println(controller.getAll());
         controller.remove(1);
         System.out.println(controller.getAll());
+        DishDataBaseImpl dishDataBase = new DishDataBaseImpl();
+        controller = new DishController(dishDataBase);
+        System.out.println("\n"+controller.getAll());
+        //controller.add(dish5);
+        //controller.remove(dish5);
+        Dish dishex = new Dish(48,"Unagi",70,"Rolls");
+        controller.edit(1,dishex);
+        System.out.println("\n"+controller.getAll());
     }
 }

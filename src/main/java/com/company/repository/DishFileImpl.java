@@ -24,6 +24,7 @@ public class DishFileImpl implements DishRepository {
         }
     }
 
+    @Override
     public void add(Dish object) {
         try {
             fileWriter = new FileWriter(file, true);
@@ -58,7 +59,7 @@ public class DishFileImpl implements DishRepository {
     }
 
     @Override
-    public void remove(int index) {
+    public void remove(int index) {//удаление по индексу
         try {
             ArrayList<Dish> arr = new ArrayList<Dish>(getAll());
             file = new File(filename);
@@ -83,7 +84,7 @@ public class DishFileImpl implements DishRepository {
             file = new File(filename);
             fileWriter = new FileWriter(file);
             for (int i = 0; i < arr.size(); i++) {
-                if ((object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
+                if ((arr.get(i).getId()==object.getId())&&(object.getCategory().equals(arr.get(i).getCategory())) && (object.getPrice() == arr.get(i).getPrice()) && object.getName().equals(arr.get(i).getName())) {
                     continue;
                 } else {
                     add(arr.get(i));

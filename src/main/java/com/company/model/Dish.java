@@ -1,26 +1,35 @@
 package com.company.model;
 
 public class Dish {
+    private int id;
     private String name;
-    private int price;
+    private double price;
     private String category;
 
     public Dish() {
     }
 
-    public Dish(String name, int price, String category)
+    public Dish(int id, String name, double price, String category)
     {
+        this.id = id;
         this.name =name;
         this.price =price;
         this.category =category;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getCategory() {
         return category;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -36,13 +45,13 @@ public class Dish {
         this.name = name;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer("Dish:"+ name +" Price:"+ price +" Category:"+ category);
+        StringBuffer stringBuffer = new StringBuffer("Id:"+id+" Dish:"+ name +" Price:"+ price +" Category:"+ category);
         return new String(stringBuffer);
     }
 }
