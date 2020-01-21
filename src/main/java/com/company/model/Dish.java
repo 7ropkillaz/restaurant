@@ -8,7 +8,6 @@ public class Dish {
 
     public Dish() {
     }
-
     public Dish(int id, String name, double price, String category)
     {
         this.id = id;

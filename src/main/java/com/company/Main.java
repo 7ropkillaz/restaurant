@@ -45,42 +45,23 @@ public class Main {
 
         Dish dish1 = new Dish(1,"Pasta", 30, "Italian");
         Dish dish2 = new Dish(2,"Ramen", 50, "Japanese");
-        /*
-        DishImpl impl = new DishImpl();
-        DishController controller = new DishController(impl);
-        controller.add(dish1);
-        System.out.println(controller.getAll());
-        controller.edit(0,dish2);
-        System.out.println(controller.getAll());
-        controller.remove(0);
-        System.out.println(controller.getAll());
-         */
-        DishFileImpl fileimpl = new DishFileImpl("file.txt");
-        DishImpl dishimpl = new DishImpl();
-        DishController controller = new DishController(dishimpl);
+        Dish dish3 = new Dish(3,"Pizza", 100, "Italian");
+        Dish dish4 = new Dish(4,"Borsch", 70, "Russian");
+        Dish dish5 = new Dish(5,"Pelmeni", 90, "Russian");
+
+        DishDataBaseImpl dishDataBase = new DishDataBaseImpl("jdbc:postgresql://localhost:5432/postgres","postgres","dekabor230948");
+        DishController controller = new DishController(dishDataBase);
         controller.add(dish1);
         controller.add(dish2);
-        System.out.println(controller.getAll());
-        Dish dish3 = new Dish(3,"Pizza", 100, "Italian");
-        controller.edit(0, dish3);
-        System.out.println(controller.getAll());
-        Dish dish4 = new Dish(4,"Borsch", 70, "Russian");
+        controller.add(dish3);
         controller.add(dish4);
-        System.out.println(controller.getAll());
-        controller.remove(dish3);
-        System.out.println(controller.getAll());
-        Dish dish5 = new Dish(5,"Pelmeni", 90, "Russian");
         controller.add(dish5);
-        System.out.println(controller.getAll());
-        controller.remove(1);
-        System.out.println(controller.getAll());
-        DishDataBaseImpl dishDataBase = new DishDataBaseImpl();
-        controller = new DishController(dishDataBase);
         System.out.println("\n"+controller.getAll());
-        //controller.add(dish5);
-        //controller.remove(dish5);
         Dish dishex = new Dish(48,"Unagi",70,"Rolls");
         controller.edit(1,dishex);
         System.out.println("\n"+controller.getAll());
+        controller.remove(dish2);
+        System.out.println("\n"+controller.getAll());
+        System.out.println("\n"+controller.get(5));
     }
 }

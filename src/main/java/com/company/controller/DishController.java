@@ -47,5 +47,9 @@ public class DishController {
     {
         return rep.getAll();
     }
+    public Dish get(int id)
+    {
+        return rep.get(id);
+    }
 }
 

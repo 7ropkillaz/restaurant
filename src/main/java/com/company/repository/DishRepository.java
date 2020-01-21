@@ -8,8 +8,9 @@ import java.util.List;
 
 public interface DishRepository {
     public void add(Dish object);
-    public void edit(int id, Dish object) throws IOException;
-    public void remove(int index) throws IOException;
-    public void remove(Dish object) throws IOException;
+    public void edit(int id, Dish object);
+    public void remove(int index);
+    public void remove(Dish object);
     public List<Dish> getAll();
+    public Dish get(int id);
 }

@@ -1,6 +1,5 @@
 package com.company.repository;
 
-
 import com.company.model.Dish;
 
 import java.util.ArrayList;
@@ -43,6 +42,11 @@ public class DishImpl implements DishRepository {
     @Override
     public List<Dish> getAll() {
         return arr;
+    }
+
+    @Override
+    public Dish get(int index){
+        return arr.get(index);
     }
 }
 
