@@ -13,11 +13,9 @@ public class ServletController extends HttpServlet {
     ServletController(DishDataBaseImpl impl){
         this.impl = impl;
     }
-
     public ServletController() {
         super();
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doGet(req, resp);
