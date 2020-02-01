@@ -13,6 +13,7 @@
     <servlet-mapping>
         <servlet-name>ServletController</servlet-name>
         <url-pattern>/get</url-pattern>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 
 </web-app>
