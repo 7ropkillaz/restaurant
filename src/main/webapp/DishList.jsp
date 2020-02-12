@@ -16,9 +16,9 @@
 <center>
     <h1>Books Management</h1>
     <h2>
-        <a href="/new">Add New Dish</a>
+        <a href="/lab_kurator_1_0_SNAPSHOT_war/new">Add New Dish</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/list">List All Dishes</a>
+        <a href="/lab_kurator_1_0_SNAPSHOT_war/list">List All Dishes</a>
 
     </h2>
 </center>

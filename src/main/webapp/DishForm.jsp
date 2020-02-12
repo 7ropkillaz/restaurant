@@ -14,9 +14,9 @@
 <center>
     <h1>Books Management</h1>
     <h2>
-        <a href="/add">Add New Book</a>
+        <a href="/lab_kurator_1_0_SNAPSHOT_war/new">Add New Book</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/list">List All Books</a>
+        <a href="/lab_kurator_1_0_SNAPSHOT_war/list">List All Books</a>
 
     </h2>
 </center>

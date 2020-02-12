@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.model.Dish;
 import com.company.repository.DishDataBaseImpl;
+import com.company.repository.DishImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,14 +13,15 @@ import java.io.IOException;
 import java.util.List;
 
 public class ServletController extends HttpServlet {
-    DishDataBaseImpl impl;
+    DishImpl impl;
 
     @Override
     public void init() {
-        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
-        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
-        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
-        impl = new DishDataBaseImpl(jdbcURL,jdbcUsername,jdbcPassword);
+        //String jdbcURL = getServletContext().getInitParameter("jdbcURL");
+        //String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
+        //String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
+        //impl = new DishDataBaseImpl(jdbcURL,jdbcUsername,jdbcPassword);
+        impl = new DishImpl();
     }
 
     @Override
@@ -34,6 +36,7 @@ public class ServletController extends HttpServlet {
         String action = request.getServletPath();
             switch (action) {
                 case "/new":
+
                     showNewForm(request, response);
                     break;
                 case "/insert":
@@ -55,10 +58,13 @@ public class ServletController extends HttpServlet {
     }
 
     private void listDish(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        List<Dish> listDish = impl.getAll();
-        request.setAttribute("listDish", listDish);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("DishList.jsp");
-        dispatcher.forward(request, response);
+        List<Dish> listDish = impl.getAll();//пребразовать в json с помощью object mapper
+        response.getWriter().write("Privet");
+        //request.setAttribute("listDish", listDish);
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("DishList.jsp");
+        //dispatcher.forward(request, response);
+        response.getWriter().flush();
+        response.getWriter().close();
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,7 +95,7 @@ public class ServletController extends HttpServlet {
         String category = request.getParameter("category");
         double price = Double.parseDouble(request.getParameter("price"));
         Dish newDish = new Dish(id,name,price,category);
-        impl.add(newDish);
+        impl.edit(id,newDish);
         response.sendRedirect("list");
     }
 

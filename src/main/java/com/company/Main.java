@@ -49,7 +49,8 @@ public class Main {
         Dish dish4 = new Dish(4,"Borsch", 70, "Russian");
         Dish dish5 = new Dish(5,"Pelmeni", 90, "Russian");
 
-        DishDataBaseImpl dishDataBase = new DishDataBaseImpl("jdbc:postgresql://localhost:5432/postgres","postgres","dekabor230948");
+        //DishDataBaseImpl dishDataBase = new DishDataBaseImpl("jdbc:postgresql://localhost:5432/postgres","postgres","dekabor230948");
+        /*
         DishController controller = new DishController(dishDataBase);
         controller.add(dish1);
         controller.add(dish2);
@@ -63,5 +64,8 @@ public class Main {
         controller.remove(dish2);
         System.out.println("\n"+controller.getAll());
         System.out.println("\n"+controller.get(5));
+
+         */
+
     }
 }
