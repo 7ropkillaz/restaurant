@@ -3,6 +3,7 @@ com\company\repository\FileRepos.class
 com\company\repository\RestaurantRepositoryImpl.class
 com\company\model\Restaurant.class
 com\company\repository\DishRepository.class
+com\company\model\Converter.class
 com\company\model\Dish.class
 com\company\repository\RestaurantRepository.class
 com\company\repository\DishFileImpl.class

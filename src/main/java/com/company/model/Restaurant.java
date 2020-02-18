@@ -37,6 +37,7 @@ public class Restaurant {
     public void setTables(int tables) {
         this.tables = tables;
     }
+
     public String getId() {
         return id;
     }

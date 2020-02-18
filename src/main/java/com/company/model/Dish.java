@@ -1,5 +1,8 @@
 package com.company.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"id","name","price","category"})
 public class Dish {
     private int id;
     private String name;
@@ -8,6 +11,7 @@ public class Dish {
 
     public Dish() {
     }
+
     public Dish(int id, String name, double price, String category)
     {
         this.id = id;
@@ -16,11 +20,6 @@ public class Dish {
         this.category =category;
     }
 
-    public Dish (String name, double price, String category){
-        this.name =name;
-        this.price =price;
-        this.category =category;
-    }
     public int getId() {
         return id;
     }
