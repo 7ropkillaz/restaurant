@@ -19,18 +19,10 @@ public class ServletController extends HttpServlet {
 
     @Override
     public void init() {
-        impl = new DishImpl();
-        Dish dish1 = new Dish(1,"Pasta", 30, "Italian");
-        Dish dish2 = new Dish(2,"Ramen", 50, "Japanese");
-        Dish dish3 = new Dish(3,"Pizza", 100, "Italian");
-        Dish dish4 = new Dish(4,"Borsch", 70, "Russian");
-        Dish dish5 = new Dish(5,"Pelmeni", 90, "Russian");
-        impl.add(dish1);
-        impl.add(dish2);
-        impl.add(dish3);
-        impl.add(dish4);
-        impl.add(dish5);
-        //impl = new DishDataBaseImpl("jdbc:postgresql://localhost:5432/postgres","postgres","dekabor230948");
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String user = "postgres";
+        String pass = "dekabor230948";
+        impl = new DishDataBaseImpl(url,user,pass);
     }
 
     @Override
