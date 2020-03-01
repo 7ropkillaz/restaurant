@@ -3,15 +3,14 @@ package com.company.controller;
 import com.company.model.Dish;
 import com.company.model.Converter;
 import com.company.repository.DishDataBaseImpl;
-import com.company.repository.DishImpl;
 import com.company.repository.DishRepository;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class ServletController extends HttpServlet {
@@ -19,6 +18,19 @@ public class ServletController extends HttpServlet {
 
     @Override
     public void init() {
+        try {
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String pass = "dekabor230948";
