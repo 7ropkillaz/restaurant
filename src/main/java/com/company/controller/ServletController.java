@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ServletController extends HttpServlet {
@@ -20,7 +22,8 @@ public class ServletController extends HttpServlet {
     public void init() {
         try {
             Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         String url = "jdbc:postgresql://localhost:5432/postgres";
