@@ -20,15 +20,7 @@ public class ServletController extends HttpServlet {
     public void init() {
         try {
             Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         String url = "jdbc:postgresql://localhost:5432/postgres";
@@ -68,14 +60,14 @@ public class ServletController extends HttpServlet {
         if(request.getPathInfo()!=null){
             response.getWriter().write(request.getPathInfo());
             int id = Integer.parseInt(request.getPathInfo());
-            String json = converter.objectToJson(impl.get(id));
+            String json = Converter.objectToJson(impl.get(id));
             response.getWriter().write(json);
         }
         else {
             List<Dish> listDish = impl.getAll();
             for (Dish dish :
                     listDish) {
-                String json = converter.objectToJson(dish);
+                String json = Converter.objectToJson(dish);
                 response.getWriter().write(json + "\n");
             }
         }
@@ -84,7 +76,7 @@ public class ServletController extends HttpServlet {
     private void addDish(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("AddDish.jsp").forward(request, response);
         String json = request.getParameter("dish");
-        Dish newDish = (Dish) new Converter().jsonToObject(json);
+        Dish newDish = (Dish) Converter.jsonToObject(json);
         impl.add(newDish);
         response.sendRedirect("list");
     }
@@ -92,7 +84,7 @@ public class ServletController extends HttpServlet {
     private void editDish(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("EditDish.jsp").forward(request, response);
         String json = request.getParameter("dish");
-        Dish newDish = (Dish) new Converter().jsonToObject(json);
+        Dish newDish = (Dish) Converter.jsonToObject(json);
         impl.edit(newDish.getId(),newDish);
         response.sendRedirect("list");
     }
@@ -100,7 +92,7 @@ public class ServletController extends HttpServlet {
     private void deleteDish(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("DeleteDish.jsp").forward(request, response);
         String json = request.getParameter("dish");
-        Dish newDish = (Dish) new Converter().jsonToObject(json);
+        Dish newDish = (Dish) Converter.jsonToObject(json);
         impl.remove(newDish.getId());
         response.sendRedirect("list");
     }
