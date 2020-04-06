@@ -20,16 +20,7 @@ public class ServletController extends HttpServlet {
 
     @Override
     public void init() {
-        try {
-            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
-            DriverManager.registerDriver(new org.postgresql.Driver());
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        String user = "postgres";
-        String pass = "dekabor230948";
-        impl = new DishDataBaseImpl(url,user,pass);
+        impl = new DishDataBaseImpl();
     }
 
     @Override

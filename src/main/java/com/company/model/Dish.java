@@ -2,7 +2,10 @@ package com.company.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 @JsonPropertyOrder({"id","name","price","category"})
+@XmlRootElement
 public class Dish {
     private int id;
     private String name;

@@ -7,6 +7,7 @@ com\company\model\Converter.class
 com\company\model\Dish.class
 com\company\repository\RestaurantRepository.class
 com\company\repository\DishFileImpl.class
+com\company\controller\DishResource.class
 com\company\repository\DishDataBaseImpl.class
 com\company\controller\DishController.class
 com\company\repository\DishImpl.class
