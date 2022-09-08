@@ -65,7 +65,7 @@
          <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.8</version>
+            <version>42.4.1</version>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
@@ -96,12 +96,12 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.10.jre7</version>
+            <version>42.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.10.jre7</version>
+            <version>42.4.1</version>
         </dependency>
         <dependency>
             <groupId>postgresql</groupId>
